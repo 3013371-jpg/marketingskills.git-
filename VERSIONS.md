@@ -23,7 +23,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | customer-research | 2.0.1 | 2026-07-10 |
 | directory-submissions | 2.0.0 | 2026-05-05 |
 | emails | 2.0.0 | 2026-05-05 |
-| facebook-data | 1.1.0 | 2026-09-15 |
+| facebook-data | 1.1.1 | 2026-09-15 |
 | free-tools | 2.0.0 | 2026-05-05 |
 | image | 2.0.1 | 2026-05-18 |
 | influencer-marketing | 1.0.0 | 2026-07-15 |
@@ -56,6 +56,10 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.1.0 | 2026-07-14 |
 
 ## Recent Changes
+
+### 2.11.2 (2026-09-15)
+
+- **facebook-data** (1.1.0 → 1.1.1): clarified the single misconception most likely to stop someone before they start — that App Review is needed to read your own Page. It isn't. Meta gates permissions by **access level**, not app mode: Page-read permissions start at **Standard Access**, which covers any user holding a role on the app (admin, developer, tester), so a Page owner who is also an app admin needs no review and no Business Verification. App Review exists to let *other people's* accounts use your app. `references/graph-api.md` now carries an access-level table, the fifteen-minutes-to-real-data path through the Graph API Explorer, the two cases where review genuinely does bite (reading Pages you don't own via Page Public Content Access, and shipping to non-role users), and the usual root cause when someone hits a review wall on their own Page (their account isn't actually a role user, or the Page belongs to a Business they don't admin). SKILL.md carries the same point inline in Route A. Verified against Meta's app-modes and pages_read_user_content permission references, which also confirm the documented dependency of `pages_read_user_content` on `pages_show_list`.
 
 ### 2.11.1 (2026-09-15)
 

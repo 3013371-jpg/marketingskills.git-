@@ -8,10 +8,30 @@ Meta versions the Graph API and deprecates versions on roughly a two-year cycle.
 
 1. Create an app at `developers.facebook.com` → **Business** type.
 2. Add products: **Facebook Login**, **Pages API**. Add **Webhooks** if you want push updates.
-3. Complete **Business Verification** (required for most Page permissions beyond development mode).
+3. Complete **Business Verification** — needed to serve users who aren't role users on the app, not to read your own Pages.
 4. Add a privacy policy URL and data deletion callback — App Review will reject without them.
 
-In development mode your app can only access Pages and Groups owned by app admins, testers and developers. That's enough to build and test the whole integration before review.
+### You do not need App Review to read your own Page
+
+This is the step that stops people unnecessarily, so be explicit about it when guiding a user.
+
+Meta gates permissions by **access level**, not by app mode:
+
+| Access level | Whose data it reaches | App Review |
+|---|---|---|
+| **Standard** | Users with a **role on the app** — admins, developers, testers | No |
+| **Advanced** | Anyone else (the general public) | Yes |
+
+Page-read permissions start at Standard Access. So if the person owns the Page **and** is an admin on the app, Standard Access covers them and no review is required. App Review exists to let *other people's* accounts use your app — it is not a gate on reading your own data.
+
+The practical consequence: someone with a Page can go from zero to reading their own comments in about fifteen minutes through the Graph API Explorer, with no review, no Business Verification and no waiting. Route them there first and let them see real data before proposing anything heavier.
+
+Two ways this genuinely does bite:
+
+- **Reading a Page you don't own** — that's `Page Public Content Access`, a separate feature request with its own review.
+- **Shipping to other users** — the moment someone without an app role needs to connect their own Page, you need Advanced Access and review.
+
+If a user hits a review wall while reading their own Page, the usual cause is that their Facebook account isn't actually a role user on the app, or the Page is owned by a Business they're not an admin of. Check both before assuming review is required.
 
 ## Permissions
 

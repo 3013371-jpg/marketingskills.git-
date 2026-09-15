@@ -2,7 +2,7 @@
 name: facebook-data
 description: "When the user wants to retrieve or analyze data from Facebook itself — Page posts, Group posts, comments, replies, reviews, events, or public profile content — for social listening, competitor monitoring, community research, or sentiment analysis. Also use when the user mentions 'scrape Facebook,' 'Facebook data,' 'Facebook API,' 'Graph API,' 'get Facebook posts,' 'Facebook comments,' 'Facebook group posts,' 'monitor a Facebook page,' 'Facebook reviews,' 'Facebook social listening,' 'pull Facebook engagement,' 'Facebook competitor research,' or 'access Facebook.' This skill is about GETTING data out of Facebook. For writing and scheduling Facebook content, see social. For running or analyzing paid campaigns and the Ad Library, see ads. For turning findings into competitor pages, see competitors. For interview-style research, see customer-research."
 metadata:
-  version: 1.1.0
+  version: 1.1.1
 ---
 
 # Facebook Data Access
@@ -60,6 +60,8 @@ Setup, in order:
    - `pages_manage_posts` / `pages_manage_engagement` — only if you're writing or moderating
 4. Generate a **Page access token**, then exchange it for a long-lived token (~60 days) and refresh on a schedule.
 5. Call `/{page-id}/feed`, `/{post-id}/comments`, `/{page-id}/insights`.
+
+**No App Review is needed to read your own Page.** Page-read permissions start at Standard Access, which covers anyone holding a role on the app (admin, developer, tester). Review and Business Verification exist to let *other people's* accounts use your app — they don't gate your own data. Someone who owns a Page can be reading their own comments in about fifteen minutes. Review only enters the picture for Pages you don't own (Route B) or when shipping to other users.
 
 For endpoint-by-endpoint detail, pagination, token refresh, rate limits and webhook setup, read `references/graph-api.md`.
 
