@@ -70,8 +70,30 @@ hostile skill does.
 6. **Don't pass `--email`** unless the user volunteers it; the skill itself says never
    to ask for it just for setup.
 
-## Not done here
+## Install state
 
-CLI install (`npm install -g @monid-ai/cli@latest`), `monid setup`, and API-key
-configuration were left to the user — they need a `monid.ai` account and key, and
-this container is ephemeral.
+The CLI is installed globally, pinned to the audited version:
+
+```bash
+npm install -g --ignore-scripts @monid-ai/cli@0.1.7
+```
+
+Pinned rather than `@latest` so the running code is exactly what was reviewed;
+`--ignore-scripts` as defence in depth (safe — `dist/index.js` ships prebuilt).
+The installed `dist/index.js` hashes to
+`091c7e8af83688075cd4c833f17d78882e1fe75a5d1333216c0b2b4caea47144`, byte-identical
+to the audited tarball. CLI version 0.1.7 matches the skill frontmatter, so the
+skill's self-update path stays dormant.
+
+Runtime behaviour confirmed the static findings: installing pulled **1 package, no
+dependencies**, and first run created `~/.config/monid/` with `credentials.yaml` at
+**0600** and non-secret update state in `config.yaml` at 0644 — the secret/non-secret
+split the code promised.
+
+**Still outstanding:** `monid setup` (a telemetry ping, held back as an unrequested
+outbound signal) and API-key configuration via `monid keys add`, which needs a
+`monid.ai` account. Note this container is ephemeral — the global install does not
+persist, so the same pinned command must be run on any machine that will use it.
+
+Minor doc discrepancy: the skill states `NO_COLOR=1` disables ANSI colour codes in
+output; it did not on 0.1.7. Strip codes when parsing, or use `-j/--json`.
