@@ -23,7 +23,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | customer-research | 2.0.1 | 2026-07-10 |
 | directory-submissions | 2.0.0 | 2026-05-05 |
 | emails | 2.0.0 | 2026-05-05 |
-| facebook-data | 1.0.0 | 2026-09-15 |
+| facebook-data | 1.1.0 | 2026-09-15 |
 | free-tools | 2.0.0 | 2026-05-05 |
 | image | 2.0.1 | 2026-05-18 |
 | influencer-marketing | 1.0.0 | 2026-07-15 |
@@ -56,6 +56,10 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.1.0 | 2026-07-14 |
 
 ## Recent Changes
+
+### 2.11.1 (2026-09-15)
+
+- **facebook-data** (1.0.0 → 1.1.0): added **`scripts/fb-comments.js`**, a zero-dependency Node 18+ Graph API client for the skill's most common job — getting comments out of Pages and Groups. Turns Route A from documentation into something runnable: `pages` (discover your Page IDs and Page tokens), `posts`, `comments --post`, `page-comments --page` (every comment across recent posts), `group-posts` and `group-comments`, plus `token-info` and `exchange` for the short-lived → long-lived token swap. Handles the operational details that make the difference between a script that works once and one that survives a real Page: cursor pagination with a hard page cap, proactive back-off at 75% of the Business Use Case rate limit (read from `X-Business-Use-Case-Usage`, because once Meta throttles, regaining access can take an hour), exponential-backoff retries on transient error codes, and a mapping from common Graph API codes to actionable hints (190 → regenerate token, 200 → missing permission, 10 → needs Page Public Content Access). Output as JSON, NDJSON or RFC 4180 CSV (verified to round-trip commas, embedded quotes, newlines and emoji), with `--replies` to walk nested reply threads, `--since` to bound the window, and `--max-posts`/`--max-pages` to cap cost. Documents the two field caveats that set expectations correctly: `author_name` is empty for commenters who haven't authorized the app (a Meta privacy boundary, not a bug), and `--replies` costs an extra call per commented post. Matches the repo's zero-dependency CLI convention. Error paths and the live request path verified against graph.facebook.com.
 
 ### 2.11.0 (2026-09-15)
 

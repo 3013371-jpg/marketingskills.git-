@@ -2,7 +2,7 @@
 name: facebook-data
 description: "When the user wants to retrieve or analyze data from Facebook itself — Page posts, Group posts, comments, replies, reviews, events, or public profile content — for social listening, competitor monitoring, community research, or sentiment analysis. Also use when the user mentions 'scrape Facebook,' 'Facebook data,' 'Facebook API,' 'Graph API,' 'get Facebook posts,' 'Facebook comments,' 'Facebook group posts,' 'monitor a Facebook page,' 'Facebook reviews,' 'Facebook social listening,' 'pull Facebook engagement,' 'Facebook competitor research,' or 'access Facebook.' This skill is about GETTING data out of Facebook. For writing and scheduling Facebook content, see social. For running or analyzing paid campaigns and the Ad Library, see ads. For turning findings into competitor pages, see competitors. For interview-style research, see customer-research."
 metadata:
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Facebook Data Access
@@ -62,6 +62,35 @@ Setup, in order:
 5. Call `/{page-id}/feed`, `/{post-id}/comments`, `/{page-id}/insights`.
 
 For endpoint-by-endpoint detail, pagination, token refresh, rate limits and webhook setup, read `references/graph-api.md`.
+
+### Reading comments — `scripts/fb-comments.js`
+
+A zero-dependency Node 18+ client is bundled for the most common job: getting comments out of Pages and Groups.
+
+```bash
+export FB_TOKEN="your-token"
+
+node scripts/fb-comments.js pages                    # find your Page ID + Page token
+node scripts/fb-comments.js posts --page <PAGE_ID>   # recent posts with engagement counts
+node scripts/fb-comments.js page-comments --page <PAGE_ID> --replies --format csv --out comments.csv
+```
+
+| Command | Returns |
+|---|---|
+| `pages` | Pages you manage, with their Page access tokens |
+| `posts --page <id>` | Recent posts with reaction/comment/share counts |
+| `comments --post <id>` | Comments on one post |
+| `page-comments --page <id>` | Every comment across a Page's recent posts |
+| `group-posts --group <id>` | Posts in a Group (app must be installed in it) |
+| `group-comments --group <id>` | Every comment across a Group's recent posts |
+| `token-info` | Token scopes, validity and expiry |
+| `exchange` | Short-lived token → long-lived (~60 days) |
+
+Useful flags: `--replies` walks nested reply threads, `--since 2026-01-01` bounds the window, `--max-posts` and `--max-pages` cap the crawl, `--format csv|ndjson`, `--out <file>`, `--verbose` logs progress and rate-limit usage to stderr.
+
+It handles cursor pagination, backs off at 75% of the Business Use Case rate limit before Meta throttles, retries transient errors with exponential backoff, and maps common Graph API error codes to actionable hints.
+
+**Two field caveats to set expectations on.** `author_name` and `author_id` come back empty for commenters who haven't authorized your app — that's a deliberate Meta privacy boundary, not a bug, so build analyses that don't depend on identity. And `--replies` costs one extra API call per commented post, so on a busy Page start without it, then add it once you know the volume.
 
 **Use webhooks for anything ongoing.** Polling a Page for new comments burns rate limit and lags; a webhook subscription pushes new comments and posts to you the moment they land. For monitoring your own properties this is both cheaper and faster than any scraping approach.
 
