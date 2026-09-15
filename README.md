@@ -298,6 +298,7 @@ You can also invoke skills directly:
 ### Measurement & Testing
 - `analytics` - Event tracking setup
 - `ab-testing` - Experiment design
+- `facebook-data` - Facebook Page, Group, and comment data retrieval
 
 ### Retention
 - `churn-prevention` - Cancel flows, save offers, dunning, payment recovery

@@ -23,6 +23,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | customer-research | 2.0.1 | 2026-07-10 |
 | directory-submissions | 2.0.0 | 2026-05-05 |
 | emails | 2.0.0 | 2026-05-05 |
+| facebook-data | 1.0.0 | 2026-09-15 |
 | free-tools | 2.0.0 | 2026-05-05 |
 | image | 2.0.1 | 2026-05-18 |
 | influencer-marketing | 1.0.0 | 2026-07-15 |
@@ -55,6 +56,10 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.1.0 | 2026-07-14 |
 
 ## Recent Changes
+
+### 2.11.0 (2026-09-15)
+
+- Added **`facebook-data`** skill — retrieving data *out of* Facebook (Page posts, Group posts, comments, reviews, events, public profile content) for social listening, competitor monitoring, community research and sentiment analysis. Complements `social`, which covers putting content *in*. The skill's organizing idea is that Facebook data access splits hard on **whose content it is**, and that one question decides cost, legality and feasibility — most teams either build a scraper for data Meta hands over free, or wait weeks on App Review for access Meta will never grant. Three routes, with an ownership table that routes on the first try. **Route A — Graph API** on your own Pages and Groups: free, sanctioned, and the only source of owner-only data (reach, impressions, follower demographics, per-post insights) that no scraper can produce; `references/graph-api.md` covers app setup, the three token types and the System User token that doesn't expire, core endpoints, cursor pagination, BUC rate limits with the `X-Business-Use-Case-Usage` back-off-at-75% pattern, signature-verified webhooks, App Review expectations and an error-code table. **Route B — Page Public Content Access**, the under-known official path to other people's public Pages, with a realistic read on what passes review and when it's worth the timeline. **Route C — third-party providers** for what Meta closed off in 2020 (arbitrary Groups, cross-Page comment mining, profile posts): six priced endpoints via Monid/Apify, discover→inspect→run, and `references/third-party-access.md` on the per-query-not-per-call billing trap, delta pulls, and honest data-quality limits (no reach data, truncated threads, silent breakage where a "successful" run returns zero rows). Plus a capability matrix answering "can you get me X" across own Page / other's Page / Group / profile, four workflows (competitor Page monitoring, Group listening for verbatim problem language → `copywriting`, comment and review mining, sentiment as a trend not an absolute), and cost estimation before any recurring job. `references/compliance.md` treats Meta's ToS and data-protection law as two separate regimes: the enforcement asymmetry that matters most (scraping can cost the Business Manager that runs the user's ads), GDPR/POPIA lawful basis and data-subject rights, the special-category trap where a Group's *topic* makes every member record sensitive by inference, aggregate-early-delete-raw minimization, name-businesses-anonymize-people for deliverables, and hard lines on private Groups, fake accounts, credential sharing, detection evasion and individual dossiers. New skill = repo y release. Total skills: 50.
 
 ### 2.10.0 (2026-07-22)
 
