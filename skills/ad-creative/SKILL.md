@@ -2,7 +2,7 @@
 name: ad-creative
 description: "When the user wants to generate, iterate, or scale ad creative — headlines, descriptions, primary text, or full ad variations — for any paid advertising platform. Also use when the user mentions 'ad copy variations,' 'ad creative,' 'generate headlines,' 'RSA headlines,' 'bulk ad copy,' 'ad iterations,' 'creative testing,' 'ad performance optimization,' 'write me some ads,' 'Facebook ad copy,' 'Google ad headlines,' 'LinkedIn ad text,' 'static ads,' 'static ad concepts,' 'ad templates,' 'iMessage ad,' 'chat reveal ad,' 'fake DM ad,' 'ChatGPT ad,' 'Apple Notes ad,' 'AirDrop ad,' 'creative strategy,' 'creative roadmap,' 'creative retro,' 'hook writing,' 'creative review page,' 'present ad creative for approval,' 'motion video ad,' 'faceless video ad,' 'animated explainer ad,' 'motion collage ad,' or 'I need more ad variations.' Use this whenever someone needs to produce ad copy at scale or iterate on existing ads. For campaign strategy and targeting, see ads. For landing page copy, see copywriting."
 metadata:
-  version: 2.8.0
+  version: 2.9.0
 ---
 
 # Ad Creative
@@ -179,6 +179,8 @@ For image and video generation tools, see [references/generative-tools.md](refer
 ### Step 1: Define Your Angles
 
 Before writing individual headlines, establish 3-5 distinct **angles** — different reasons someone would click. Each angle should tap into a different motivation.
+
+**For native / advertorial-style ads**, work the full hierarchy top-down — **Desire → Angle → Structure** — and run the master diagnostic on every draft: *Have I named the need, dramatised it until they feel how badly they need the solution, then presented the product as inevitable?* The structure you pick (naked problem → problem-solution → problem-solution-with-limitation-removed → solution-only → mechanism → story) follows from the prospect's awareness level. Full framework in [references/desire-angle-structure.md](references/desire-angle-structure.md).
 
 **Common angle categories:**
 

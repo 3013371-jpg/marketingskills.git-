@@ -5,7 +5,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | Skill | Version | Last Updated |
 |-------|---------|--------------|
 | ab-testing | 2.0.0 | 2026-05-05 |
-| ad-creative | 2.8.0 | 2026-07-14 |
+| ad-creative | 2.9.0 | 2026-10-31 |
 | ai-seo | 2.2.0 | 2026-07-09 |
 | analytics | 2.0.1 | 2026-07-22 |
 | aso | 2.0.0 | 2026-05-05 |
@@ -55,6 +55,10 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.1.0 | 2026-07-14 |
 
 ## Recent Changes
+
+### 2.10.2 (2026-10-31)
+
+- **ad-creative** (2.8.0 → 2.9.0): added `references/desire-angle-structure.md`, a native/advertorial ad architecture rooted in *Breakthrough Advertising* — the **Desire → Angle → Structure** hierarchy (one mass desire → narrow segment angles → the copy structure that carries each), the master diagnostic (*name the need → dramatise it → present the product as inevitable*), Schwartz's **problem-solving ad range** (naked problem "Corns?" → problem+solution → problem+solution+limitation-removed "…without surgery"), and a working structure taxonomy mapped to awareness level (naked problem / problem-solution / limitation-removed / solution-only / mechanism / story). SKILL.md's "Define Your Angles" step now points to it for native ads. Worked example: weight loss → hormonal/post-pregnancy angle → structure choice.
 
 ### 2.10.1 (2026-10-31)
 
