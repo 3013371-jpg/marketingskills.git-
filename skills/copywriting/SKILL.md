@@ -2,7 +2,7 @@
 name: copywriting
 description: When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also use when the user says "write copy for," "improve this copy," "rewrite this page," "marketing copy," "headline help," "CTA copy," "value proposition," "tagline," "subheadline," "hero section copy," "above the fold," "this copy is weak," "make this more compelling," or "help me describe my product." Use this whenever someone is working on website text that needs to persuade or convert. For email copy, see emails. For popup copy, see popups. For editing existing copy, see copy-editing. For the offer underneath the copy (bonuses, guarantees, value framing), see offers.
 metadata:
-  version: 2.0.1
+  version: 2.1.0
 ---
 
 # Copywriting
@@ -104,6 +104,13 @@ Puns and wit make copy memorable—but only if it fits the brand and doesn't und
 ---
 
 ## Page Structure Framework
+
+**The engine underneath the structure:** A landing page is one continuous act of
+intensifying the prospect's existing desire. Eugene Schwartz's seven desire
+operations — reinforce the desire, sharpen the image, extend where/when, add new
+proof, reveal a better mechanism, remove an old limitation, escape the
+competition — are the jobs each section performs. For every section, ask *which
+of the seven is this doing?* **See [references/intensifying-desire.md](references/intensifying-desire.md)** for using this to build the whole page.
 
 ### Above the Fold
 

@@ -18,7 +18,7 @@ Current versions of all skills. Agents can compare against local versions to che
 | competitors | 2.0.1 | 2026-07-09 |
 | content-strategy | 2.0.0 | 2026-05-05 |
 | copy-editing | 2.0.0 | 2026-05-05 |
-| copywriting | 2.0.1 | 2026-06-16 |
+| copywriting | 2.1.0 | 2026-10-31 |
 | cro | 2.0.0 | 2026-05-05 |
 | customer-research | 2.0.1 | 2026-07-10 |
 | directory-submissions | 2.0.0 | 2026-05-05 |
@@ -55,6 +55,10 @@ Current versions of all skills. Agents can compare against local versions to che
 | video | 2.1.0 | 2026-07-14 |
 
 ## Recent Changes
+
+### 2.10.1 (2026-10-31)
+
+- **copywriting** (2.0.1 → 2.1.0): added `references/intensifying-desire.md` capturing Eugene Schwartz's seven desire operations from *Breakthrough Advertising* (reinforce the desire, sharpen the image, extend where/when, introduce new proof, announce a better mechanism, remove an old limitation, escape the competition), reframed as the master blueprint for building a landing page — each page section performs one of the seven on the prospect's existing desire. SKILL.md's Page Structure Framework now opens with this "engine underneath the structure" and points to the reference, plus a per-section diagnostic ("which of the seven is this doing?").
 
 ### 2.10.0 (2026-07-22)
 
